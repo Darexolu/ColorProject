@@ -24,11 +24,11 @@ namespace ColorProject
             ColorInfo coloured = ((AddorEditViewModel)BindingContext).Coloured;
             if (coloured.ColourId == 0) 
                 {
-                //    var rE = ((Color)BindingContext).R;
-                //var Gr = ((Color)BindingContext).G;
-                //    var Br = ((Color)BindingContext).B;
+                    var rE = coloured.R;
+                var Gr = coloured.G;
+                    var Br = coloured.B;
 
-                    coloured.Coloring = Color.FromRgb( 255, 255, 255);
+                    coloured.Coloring = Color.FromRgb(rE % 255, Gr % 255,  Br % 255);
 
                 }
                 MessagingCenter.Send(this, "AddorEdit", coloured);

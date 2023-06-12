@@ -8,9 +8,9 @@
         <StackLayout>
             <Entry Placeholder="Colour Name" Keyboard="Text" Margin="0,20,0,20" TextColor="Black" FontSize="Large" Text="{Binding Coloured.ColorName}"/>
             <Entry Placeholder="Colour"  Text="{Binding Coloured.Coloring}" />
-            <!--<Entry Placeholder="Colour" Keyboard="Numeric" Text="{Binding R}" />
-            <Entry Placeholder="Colour" Keyboard="Numeric" Text="{Binding G}" />
-            <Entry Placeholder="Colour" Keyboard="Numeric" Text="{Binding B}" />-->
+            <Entry Placeholder="Colour" Keyboard="Numeric" Text="{Binding Coloured.R}" />
+            <Entry Placeholder="Colour" Keyboard="Numeric" Text="{Binding Coloured.G}" />
+            <Entry Placeholder="Colour" Keyboard="Numeric" Text="{Binding Coloured.B}" />
 
 
             <Grid  Margin="0,280,0,0">
