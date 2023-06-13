@@ -62,15 +62,17 @@ namespace ColorProject
             Navigation.PopAsync();
                 
             }
-        
-        //private void Delete(object sender, EventArgs e)
-        //{  
-        //    ColorInfo colorInfo = ((ColorCustomViewModel)BindingContext).Colours.Where(colr => colr.ColourId != 0).FirstOrDefault();
-        //    ((ColorCustomViewModel)BindingContext).Colours.Remove(colorInfo);
 
-        //}
+        private void Delete(object sender, EventArgs e)
+        {  
+            ColorInfo colorInfo = ((ColorCustomViewModel)BindingContext).Colours.Where(colr => colr.ColourId != 0).FirstOrDefault();
+            ((ColorCustomViewModel)BindingContext).Colours.Remove(colorInfo);
+            Navigation.PopAsync();
 
-       
+
+        }
+
+
     }
     }
 
