@@ -12,28 +12,45 @@ namespace ColorProject
     {
         public int ColourId { get; set; }
         public string ColorName { get; set; }
-        public Color Coloring { get; set; }
+
+        private Color coloring;
+        public Color Coloring
+        { get => coloring; set
+            {
+                if (value == Coloring) return;
+                coloring = value;
+                NotifyPropertyChanged();
+
+                //NotifyPropertyChanged("R");
+                //NotifyPropertyChanged("G");
+                //NotifyPropertyChanged("B");
+
+            }
+        }
         private double r;
                 public double R { get => r; 
                     set { if (value == R) return;
-                       r = value;
-                       NotifyPropertyChanged();
-                    }
-                }
+                r = value;
+                NotifyPropertyChanged();
+
+            }
+        }
                 private double g;
                public double G { get => g; set {
                         if (value == G) return;
-                       g = value;
-                      NotifyPropertyChanged();
-                  }
-                }
+                g = value;
+                NotifyPropertyChanged();
+
+            }
+        }
                 private double b;
                 public double B { get => b; set {
                        if (value == B) return;
-                        b = value;
-                        NotifyPropertyChanged();
-                    } 
-               }
+                b = value;
+                NotifyPropertyChanged();
+              
+            }
+        }
 
 
               public event PropertyChangedEventHandler PropertyChanged;

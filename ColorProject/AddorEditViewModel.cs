@@ -7,9 +7,18 @@ using System.Runtime.CompilerServices;
 
 
 namespace ColorProject { 
-    public class AddorEditViewModel
+    public class AddorEditViewModel: INotifyPropertyChanged
 {
-       public ColorInfo Coloured { get; set; }
+        public ColorInfo _colorinfo;
+       public ColorInfo Coloured
+        {
+            get => _colorinfo; set      
+                {
+                    _colorinfo = value;
+                    NotifyPropertyChanged();
+                }         
+        }
+        //public ICommand Delete { get; private set; }
 //        private double r;
 //        public double R { get => r; 
 //            private set { if (value == R) return;
@@ -33,16 +42,17 @@ namespace ColorProject {
 //        }
 
 
-//        public event PropertyChangedEventHandler PropertyChanged;
-//        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-//        {
-//            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-//        }
-
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        
 //        //public ICommand Save { get => value; set; }
         public AddorEditViewModel()
     {
         Coloured = new ColorInfo();
+ 
 
     }
 }

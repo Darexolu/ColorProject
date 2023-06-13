@@ -12,34 +12,65 @@ namespace ColorProject
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddorEditColor : ContentPage
     {
-        public AddorEditColor()
+        public AddorEditColor(ColorInfo colorInfo = null)
         {
             InitializeComponent();
             BindingContext = new AddorEditViewModel();
+            if (colorInfo != null)
+            {
+                ((AddorEditViewModel)BindingContext).Coloured = colorInfo;
+
+            }
         }
 
 
         private void Save(object sender, EventArgs e)
         {
             ColorInfo coloured = ((AddorEditViewModel)BindingContext).Coloured;
-            if (coloured.ColourId == 0) 
-                {
-                    var rE = coloured.R;
+            if (coloured.ColourId == 0)
+            {
+                var rE = coloured.R;
                 var Gr = coloured.G;
-                    var Br = coloured.B;
+                var Br = coloured.B;
 
-                    coloured.Coloring = Color.FromRgb(rE % 255, Gr % 255,  Br % 255);
+                coloured.Coloring = Color.FromRgb(rE % 255, Gr % 255, Br % 255);
 
-                }
-                MessagingCenter.Send(this, "AddorEdit", coloured);
-                Navigation.PopAsync();
             }
+            MessagingCenter.Send(this, "AddorEdit", coloured);
+            Navigation.PopAsync();
+        }
 
         private void Discard(object sender, EventArgs e)
         {
             Navigation.PopAsync();
 
         }
+        private void Update(object sender, EventArgs e)
+        {
+
+            ColorInfo coloured = ((AddorEditViewModel)BindingContext).Coloured;
+            if (coloured.ColourId != 0)
+            {
+                var rE = coloured.R;
+                var Gr = coloured.G;
+                var Br = coloured.B;
+
+                coloured.Coloring = Color.FromRgb(rE % 255, Gr % 255, Br % 255);
+            }
+            MessagingCenter.Send(this, "AddorEdit", coloured);
+
+            Navigation.PopAsync();
+                
+            }
+        
+        //private void Delete(object sender, EventArgs e)
+        //{  
+        //    ColorInfo colorInfo = ((ColorCustomViewModel)BindingContext).Colours.Where(colr => colr.ColourId != 0).FirstOrDefault();
+        //    ((ColorCustomViewModel)BindingContext).Colours.Remove(colorInfo);
+
+        //}
+
+       
     }
     }
 

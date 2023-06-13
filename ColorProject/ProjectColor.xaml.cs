@@ -22,9 +22,11 @@ namespace ColorProject
         {
 			await Navigation.PushAsync(new AddorEditColor());
         }
-        private async void Navigate_Tapped(object sender, EventArgs e)
+        private void Navigate_Tapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new UpdateorDelete());
+			TappedEventArgs tappedEventArgs = (TappedEventArgs)e;
+			ColorInfo colorInfo = ((ColorCustomViewModel)BindingContext).Colours.Where(colr => colr.ColourId == (int)tappedEventArgs.Parameter).FirstOrDefault();
+             Navigation.PushAsync(new AddorEditColor(colorInfo));
         }
     }
 }

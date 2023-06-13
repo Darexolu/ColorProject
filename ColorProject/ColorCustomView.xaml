@@ -4,7 +4,7 @@
              x:Class="ColorProject.ColorCustomView">
   <ContentView.Content>
         <StackLayout>
-            <Grid BackgroundColor="red" Margin="80,420,70,-290">
+            <Grid BackgroundColor="red" Margin="80,40,70,30">
                 <Label Text="-" Padding="35,0,0,0" FontSize="50" TextColor="Black"  FontAttributes="Bold" WidthRequest="10">
                     <!--<Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="" NumberOfTapsRequired="1"/>

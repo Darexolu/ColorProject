@@ -3,17 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:colorproject="clr-namespace:ColorProject"
              x:DataType="colorproject:AddorEditViewModel"
-             x:Class="ColorProject.AddorEditColor">
+             x:Class="ColorProject.AddorEditColor"
+             xmlns:projectEntry="clr-namespace:ColorProject">
+    <NavigationPage.HasNavigationBar >
+        False
+    </NavigationPage.HasNavigationBar>
     <ContentPage.Content>
         <StackLayout>
+            <Frame BackgroundColor="Blue" CornerRadius="30">
+                <Label Text="(+) Create Color (edit) (Name)" TextColor="White" HorizontalOptions="Center" FontSize="30"/>
+            </Frame>
             <Entry Placeholder="Colour Name" Keyboard="Text" Margin="0,20,0,20" TextColor="Black" FontSize="Large" Text="{Binding Coloured.ColorName}"/>
-            <Entry Placeholder="Colour"  Text="{Binding Coloured.Coloring}" />
+            <BoxView  Color="{Binding Coloured.Coloring}" />
             <Entry Placeholder="Colour" Keyboard="Numeric" Text="{Binding Coloured.R}" />
             <Entry Placeholder="Colour" Keyboard="Numeric" Text="{Binding Coloured.G}" />
             <Entry Placeholder="Colour" Keyboard="Numeric" Text="{Binding Coloured.B}" />
+            <projectEntry:ColorCustomView/>
+            <Grid  Margin="0,50,0,10" VerticalOptions="EndAndExpand">
+                <Button Text="Update"  BackgroundColor="Green" TextColor="white" Margin="80,0,80,0" HorizontalOptions="Start"  WidthRequest="80" CornerRadius="30" Clicked="Update"></Button>
+                <Button Text="Delete" BackgroundColor="Red" TextColor="White"  HorizontalOptions="End" Margin="80,0,80,0"  WidthRequest="80" CornerRadius="30" Command="Delete"/>
+            </Grid>
 
-
-            <Grid  Margin="0,280,0,0">
+            <Grid  Margin="0,0,0,5">
                 <Button Text="Save" BackgroundColor="Green" TextColor="white" Margin="80,0,80,0" HorizontalOptions="Start"  WidthRequest="80" CornerRadius="30" Clicked="Save"></Button>
                 <Button Text="Discard" BackgroundColor="Red" TextColor="White"  HorizontalOptions="End" Margin="80,0,80,0"  WidthRequest="80"   CornerRadius="30" Clicked="Discard"/>
             </Grid>
